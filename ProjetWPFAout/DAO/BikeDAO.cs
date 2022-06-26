@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
+yololo 
+yololo 
 internal class BikeDAO : DAO<Bike>
 {
     public override bool Create(Bike obj)
