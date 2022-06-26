@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ProjetWPFAout
 {
@@ -24,16 +12,42 @@ namespace ProjetWPFAout
         {
             InitializeComponent();
 
-            /*AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
+            /*
+             * 1
+             * 
+             * AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
             DAO<Bike> bikeDAO = adf.GetBikeDAO();
-            List<Bike> bikes = bikeDAO.FindAll();*/
+            Member m = new Member(1, "Martens", "Rémi", 0492821292, "remi", "1234", 0);
+            List<Bike> bikes = bikeDAO.Find(m);
+            */
 
-            BikeDAO bikeDAO = new BikeDAO();
+            /*
+             * 2
+             * 
+             * BikeDAO bikeDAO = new BikeDAO();
             Member m = new Member(1, "Martens", "Rémi", 0492821292, "remi", "1234", 0);
 
             List<Bike> bikes = bikeDAO.FindAll(m);
 
             System.Diagnostics.Debug.WriteLine(bikes[0].IdBike);
+            */
+
+            /*
+             * 3
+             * 
+             * Member m = new Member(1, "martens", "rémi", 0492821292, "remi", "1234", 0);
+            Bike bike = new Bike();
+            List<Bike> bikes = bike.GetAllBikes();
+            foreach (Bike b in bikes)
+            {
+                System.Diagnostics.Debug.WriteLine(b.IdBike);
+            }
+            */
+
+            AbstractDAOFactory adf = AbstractDAOFactory.GetFactory(DAOFactoryType.MS_SQL_FACTORY);
+            DAO<Bike> bikeDAO = adf.GetBikeDAO();
+            Member m = new Member(1, "Martens", "Rémi", 0492821292, "remi", "1234", 0);
+            List<Bike> bikes = bikeDAO.FindAll();
         }
     }
 }

@@ -44,4 +44,13 @@ class Bike
         get { return inscriptions; }
         set { inscriptions = value; }
     }
+
+    public List<Bike> GetAllBikes()
+    {
+        BikeDAO dao = new BikeDAO();
+
+        List<Bike> bikes = dao.FindAll();
+
+        return bikes;
+    }
 }
